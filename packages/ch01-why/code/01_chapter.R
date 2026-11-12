@@ -4,13 +4,20 @@
 # need the internet or a package that is not always installed.
 
 # ---- fig-kuznets ----
-kuznets <- data.frame(year = 1929:1932,
-                      income = c(83.032, 70.345, 54.643, 39.365))
-ggplot(kuznets, aes(factor(year), income)) +
-  geom_col(fill = book_blue, width = 0.62) +
-  geom_text(aes(label = sprintf("%.1f", income)), vjust = -0.45, size = 3.1) +
+kuznets <- data.frame(
+  year = rep(1929:1932, 2),
+  measure = rep(c("Produced", "Paid out"), each = 4),
+  income = c(83.032, 70.345, 54.643, 39.365, 81.136, 75.410, 63.247, 48.894)
+)
+kuznets$measure <- factor(kuznets$measure, levels = c("Produced", "Paid out"))
+ggplot(kuznets, aes(factor(year), income, fill = measure)) +
+  geom_col(position = position_dodge(width = 0.72), width = 0.66) +
+  geom_text(aes(label = sprintf("%.1f", income)), position = position_dodge(width = 0.72),
+            vjust = -0.45, size = 2.6) +
+  scale_fill_manual(values = c(book_blue, book_orange), name = NULL) +
   scale_y_continuous(limits = c(0, 95), expand = c(0, 0)) +
-  labs(x = NULL, y = "US$ billions")
+  labs(x = NULL, y = "US$ billions") +
+  theme(legend.position = "top")
 
 
 # ---- fig-uk-solar ----
