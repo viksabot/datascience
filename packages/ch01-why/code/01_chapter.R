@@ -3,22 +3,14 @@
 # Lines that begin with ## were not run in the book, usually because they
 # need the internet or a package that is not always installed.
 
-# ---- fig-greece-2009 ----
-estimates <- data.frame(
-  when = c("Spring 2009", "Before Oct 2009\nelection", "Oct 2009",
-           "Apr 2010", "Nov 2010"),
-  deficit = c(3.7, 6.0, 12.5, 13.6, 15.4)
-)
-estimates$when <- factor(estimates$when, levels = estimates$when)
-ggplot(estimates, aes(when, deficit)) +
+# ---- fig-kuznets ----
+kuznets <- data.frame(year = 1929:1932,
+                      income = c(83.032, 70.345, 54.643, 39.365))
+ggplot(kuznets, aes(factor(year), income)) +
   geom_col(fill = book_blue, width = 0.62) +
-  geom_text(aes(label = paste0(deficit, "%")), vjust = -0.45, size = 3.1) +
-  geom_hline(yintercept = 3, linetype = "dashed", color = book_orange) +
-  annotate("text", x = 5.42, y = 4.3, label = "EU limit\n3%", hjust = 0,
-           color = "#5A6675", size = 2.8, lineheight = 0.9) +
-  scale_x_discrete(expand = expansion(add = c(0.6, 0.95))) +
-  scale_y_continuous(limits = c(0, 17.5), expand = c(0, 0)) +
-  labs(x = NULL, y = "Deficit, % of GDP")
+  geom_text(aes(label = sprintf("%.1f", income)), vjust = -0.45, size = 3.1) +
+  scale_y_continuous(limits = c(0, 95), expand = c(0, 0)) +
+  labs(x = NULL, y = "US$ billions")
 
 
 # ---- fig-uk-solar ----
