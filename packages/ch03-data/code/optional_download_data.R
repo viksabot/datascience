@@ -54,14 +54,11 @@ infl_2022 <- infl_raw %>%
   filter(TIME_PERIOD == YEAR, unit == INFL_UNIT, coicop == "CP00") %>%
   select(geo, inflation_rate = values)
 
-fix_geo <- function(x) {
-  recode(as.character(x), EL = "GR", UK = "GB", .default = as.character(x))
-}
-
+# origin = "eurostat" already knows Eurostat's own codes, such as EL for Greece and UK for the United Kingdom.
 unemp_2022 <- unemp_2022 %>%
-  mutate(iso3c = countrycode(fix_geo(geo), "iso2c", "iso3c", warn = FALSE))
+  mutate(iso3c = countrycode(geo, origin = "eurostat", destination = "iso3c", warn = FALSE))
 infl_2022 <- infl_2022 %>%
-  mutate(iso3c = countrycode(fix_geo(geo), "iso2c", "iso3c", warn = FALSE))
+  mutate(iso3c = countrycode(geo, origin = "eurostat", destination = "iso3c", warn = FALSE))
 
 europe_iso3 <- c(
   "ALB", "AUT", "BEL", "BGR", "BIH", "BLR", "CHE", "CYP", "CZE", "DEU",

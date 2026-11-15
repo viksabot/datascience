@@ -333,18 +333,13 @@ head(df_2022)
 
 
 # ---- d-eu-geo ----
-# fix_geo <- function(x) {
-#   recode(as.character(x), EL = "GR", UK = "GB",
-#          .default = as.character(x))
-# }
-# 
 # unemp_2022 <- unemp_2022 %>%
-#   mutate(iso3c = countrycode(fix_geo(geo), "iso2c", "iso3c",
-#                              warn = FALSE))
+#   mutate(iso3c = countrycode(geo, origin = "eurostat",
+#                              destination = "iso3c", warn = FALSE))
 # 
 # infl_2022 <- infl_2022 %>%
-#   mutate(iso3c = countrycode(fix_geo(geo), "iso2c", "iso3c",
-#                              warn = FALSE))
+#   mutate(iso3c = countrycode(geo, origin = "eurostat",
+#                              destination = "iso3c", warn = FALSE))
 
 
 # ---- d-eu-join ----
