@@ -125,7 +125,7 @@ print(p_zero, vp = grid::viewport(layout.pos.col = 2, layout.pos.row = 1))
 
 
 # ---- v-setwd ----
-# setwd("path/to/your/directory")
+# getwd()
 
 
 # ---- v-libs ----

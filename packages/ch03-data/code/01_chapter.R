@@ -50,15 +50,12 @@ wages_long %>%
 
 # ---- d-setup-general ----
 # ##############################################
-# ## Example of setting the working directory
-# ## and loading the required packages
+# ## Checking the working directory
+# ## and installing the required packages
 # ##############################################
 # 
-# # 1) Set the working directory
-# # Adjust this to the location of your files
-# setwd("/path/to/your/folder")  # e.g. setwd("C:/Users/Ime/Documents/Data")
-# 
-# # Check the current working directory
+# # 1) Check the working directory
+# # With the project open, this shows the project's folder
 # getwd()
 # 
 # # 2) Install the required packages (if not already installed)

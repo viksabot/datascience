@@ -16,7 +16,6 @@ ggplot(curve_data, aes(y, p)) +
 # Load necessary libraries
 library(readxl)
 library(tidyverse)
-# setwd("YourDirectory")
 # Read the dataset from the Excel file
 data <- read_excel("data/regression_example_data.xlsx")
 names(data)[7] <- "electricity_access"   # see Chapter 9

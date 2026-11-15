@@ -31,7 +31,6 @@ ggplot(res_data, aes(GDP, Exports)) +
 # Load necessary libraries
 library(readxl)
 library(tidyverse)
-# setwd("YourDirectory")
 # Read the dataset from the Excel file
 data <- read_excel("data/regression_example_data.xlsx")
 # View the first few rows of the data to ensure it's loaded correctly
