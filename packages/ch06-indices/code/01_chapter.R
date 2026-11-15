@@ -7,10 +7,8 @@
 # # 0) Load the required packages
 # # install.packages("WDI")
 # # install.packages("dplyr")
-# # install.packages("countrycode")
 # library(WDI)
 # library(dplyr)
-# library(countrycode)
 # 
 # # 1) Define indicators similar to those of the HDI
 # #    - Life expectancy (SP.DYN.LE00.IN)
@@ -23,27 +21,20 @@
 # )
 # 
 # # 2) Download data for all countries for 2022
+# #    extra = TRUE adds the column region, which is "Aggregates"
+# #    for groups of countries such as "World" or "High income"
 # df_raw <- WDI(
 #   country   = "all",
 #   indicator = indicators,
 #   start     = 2022,
-#   end       = 2022
+#   end       = 2022,
+#   extra     = TRUE
 # )
 # 
-# # 3) For easier processing we use the ISO3 country codes
-# df_raw <- df_raw %>%
-#   mutate(iso3c = countrycode(iso2c, origin = "iso2c",
-#                              destination = "iso3c"))
-# 
-# # 4) Filter out aggregates, regions and the like
-# #    We keep only the data for countries:
+# # 3) Keep only the countries with complete data
 # df_clean <- df_raw %>%
-#   filter(!is.na(iso3c)) %>%
-#   # Remove "countries" such as "World" and "High income"
 #   filter(
-#     !country %in% c("World", "High income", "Low income", "Euro area",
-#                     "European Union", "IDA & IBRD total",
-#                     "OECD members"),
+#     region != "Aggregates",
 #     !is.na(LifeExp),
 #     !is.na(GDPperCap),
 #     !is.na(SecEnroll),

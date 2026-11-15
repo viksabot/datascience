@@ -46,7 +46,6 @@ ggplot(pts, aes(a, b)) +
 # ---- u-download ----
 # library(WDI)
 # library(dplyr)
-# library(countrycode)
 # library(ggplot2)
 # 
 # indicators <- c(
@@ -55,17 +54,13 @@ ggplot(pts, aes(a, b)) +
 #   "SecEnroll"  = "SE.SEC.ENRR"      # Secondary enrolment (%)
 # )
 # 
+# # extra = TRUE adds the column region ("Aggregates" for groups)
 # df_raw <- WDI(country = "all", indicator = indicators,
-#               start = 2022, end = 2022)
+#               start = 2022, end = 2022, extra = TRUE)
 # 
 # df_clean <- df_raw %>%
-#   mutate(iso3c = countrycode(iso2c, origin = "iso2c",
-#                              destination = "iso3c")) %>%
-#   filter(!is.na(iso3c)) %>%
 #   filter(
-#     !country %in% c("World", "High income", "Low income", "Euro area",
-#                     "European Union", "IDA & IBRD total",
-#                     "OECD members"),
+#     region != "Aggregates",
 #     !is.na(LifeExp), !is.na(GDPperCap), !is.na(SecEnroll),
 #     LifeExp > 0, GDPperCap > 0, SecEnroll > 0
 #   )
