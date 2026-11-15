@@ -258,19 +258,17 @@ write.csv(df_2022, "wb_api_cleaned_data.csv", row.names = FALSE)
 
 # ---- d-wdi-install ----
 # install.packages("WDI")
-# install.packages("countrycode")
 # install.packages("dplyr")
 
 
 # ---- d-wdi-libs ----
 # library(WDI)
-# library(countrycode)
 # library(dplyr)
 
 
 # ---- d-wdi-call ----
 # df_2022 <- WDI(
-#   country = "all",  # data for all countries
+#   country = europe_iso3,  # only the European countries
 #   indicator = c("GDP" = "NY.GDP.MKTP.CD",  # GDP
 #                 "Pop" = "SP.POP.TOTL"),    # population
 #   start = 2022,     # first year
@@ -279,19 +277,11 @@ write.csv(df_2022, "wb_api_cleaned_data.csv", row.names = FALSE)
 
 
 # ---- d-wdi-load ----
-df_2022 <- read.csv("data/wdi_2022.csv")
-
-
-# ---- d-countrycode ----
-# df <- df %>%
-#   mutate(iso3c = countrycode(iso2c, origin = "iso2c",
-#                              destination = "iso3c"))
+df_2022 <- read.csv("data/wdi_2022.csv") %>%
+  filter(iso3c %in% europe_iso3)
 
 
 # ---- d-wdi-filter ----
-df_2022 <- df_2022 %>%
-  filter(iso3c %in% europe_iso3)
-
 head(df_2022)
 
 
