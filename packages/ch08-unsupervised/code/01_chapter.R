@@ -157,7 +157,7 @@ plot_components <- ggplot(df_minmax, aes(x = PC1, y = PC2,
 plot_components
 
 ggsave("HDI_PC1_PC2.png", plot = plot_components,
-       width = 8, height = 6, dpi = 300)
+       width = 20, height = 15, units = "cm", dpi = 300)
 
 
 # ---- u-yields ----

@@ -186,7 +186,7 @@ ggplot(df_2022, aes(x = Pop_millions, y = GDP_millions)) +
 
 
 # ---- v-ggsave-1 ----
-# ggsave("plot_2022.png", width = 8, height = 6, dpi = 300)
+# ggsave("plot_2022.png", width = 20, height = 15, units = "cm", dpi = 300)
 
 
 # ---- v-repel-install ----
@@ -258,7 +258,7 @@ ggplot(df_2022, aes(x = Pop_millions, y = GDP_millions)) +
 # ---- v-ggsave-2 ----
 # # Save the chart as a PNG
 # ggsave("pop_vs_gdp_per_capita_2022.png",
-#        width = 7, height = 5, dpi = 300)
+#        width = 18, height = 13, units = "cm", dpi = 300)
 
 
 # ---- fig-bar ----
@@ -323,7 +323,7 @@ ggplot(df_countries,
 
 
 # ---- v-line-save ----
-# ggsave("gdp_line_chart.png", width = 7, height = 5, dpi = 300)
+# ggsave("gdp_line_chart.png", width = 18, height = 13, units = "cm", dpi = 300)
 
 
 # ---- fig-mk-real ----
