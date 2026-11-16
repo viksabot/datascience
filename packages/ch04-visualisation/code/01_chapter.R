@@ -124,6 +124,33 @@ print(p_cut, vp = grid::viewport(layout.pos.col = 1, layout.pos.row = 1))
 print(p_zero, vp = grid::viewport(layout.pos.col = 2, layout.pos.row = 1))
 
 
+# ---- fig-inverted ----
+fl <- data.frame(year = 1990:2012,
+                 murders = c(873, 806, 789, 800, 739, 687, 668, 634, 589, 460, 499, 502,
+                             552, 586, 555, 521, 740, 825, 780, 695, 669, 691, 722))
+p_flip <- ggplot(fl, aes(year, murders)) +
+  geom_area(fill = book_orange, alpha = 0.85) +
+  geom_line(colour = book_orange, linewidth = 0.6) +
+  geom_vline(xintercept = 2005, linetype = "dashed", colour = "grey35", linewidth = 0.4) +
+  scale_y_reverse(limits = c(1000, 0), expand = c(0, 0)) +
+  scale_x_continuous(breaks = c(1990, 2000, 2010), expand = c(0, 0)) +
+  labs(x = NULL, y = NULL) +
+  theme(axis.text = element_text(size = 6.5))
+p_norm <- ggplot(fl, aes(year, murders)) +
+  geom_line(colour = book_blue, linewidth = 0.8) +
+  geom_point(colour = book_blue, size = 0.9) +
+  geom_vline(xintercept = 2005, linetype = "dashed", colour = "grey35", linewidth = 0.4) +
+  annotate("text", x = 2004.6, y = 960, label = "law changed", hjust = 1, size = 2.2, colour = "grey30") +
+  scale_y_continuous(limits = c(0, 1000), expand = c(0, 0)) +
+  scale_x_continuous(breaks = c(1990, 2000, 2010), expand = expansion(add = c(0.3, 0.6))) +
+  labs(x = NULL, y = NULL) +
+  theme(axis.text = element_text(size = 6.5))
+grid::grid.newpage()
+grid::pushViewport(grid::viewport(layout = grid::grid.layout(1, 2)))
+print(p_flip, vp = grid::viewport(layout.pos.col = 1, layout.pos.row = 1))
+print(p_norm, vp = grid::viewport(layout.pos.col = 2, layout.pos.row = 1))
+
+
 # ---- v-setwd ----
 # getwd()
 
