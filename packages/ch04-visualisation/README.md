@@ -30,6 +30,7 @@ Written and tested with R version 4.5.0 (2025-04-11 ucrt). Packages: `dplyr`, `g
 | `ten_countries_panel.csv` | World Bank | Public download | Panel of ten countries from WDI |
 | `us_phillips.csv` | FRED | Public download | US unemployment and inflation (UNRATE and CPIAUCSL) |
 | `wb_cleaned_data.csv` | World Bank | Derived | Cleaned table of 41 countries built from wdi_2022.csv |
+| `uk_phillips_1861_1913.csv` | FRED (Bank of England) | Public download | UK unemployment rate and growth of average weekly earnings, 1861-1913 (UNRTUKA and AWEPPUKA, from A millennium of macroeconomic data) |
 
 Data from outside sources remain subject to the terms of those sources.
 

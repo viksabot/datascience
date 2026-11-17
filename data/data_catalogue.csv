@@ -49,3 +49,4 @@
 "wdi_hdi_like_2020.csv","World Bank","Public download","Life expectancy, GDP per person and secondary enrolment, 2020","https://databank.worldbank.org/source/world-development-indicators",266,7,19,""
 "wdi_hdi_like_2022.csv","World Bank","Public download","Life expectancy, GDP per person and secondary enrolment, 2022","https://databank.worldbank.org/source/world-development-indicators",266,7,19,""
 "wgi_rule_of_law_2018.csv","World Bank","Public download","Rule of law, Worldwide Governance Indicators, 2018 (GOV_WGI_RL.EST)","https://www.worldbank.org/en/publication/worldwide-governance-indicators",206,3,6,""
+"uk_phillips_1861_1913.csv","FRED (Bank of England)","Public download","UK unemployment rate and growth of average weekly earnings, 1861-1913 (UNRTUKA and AWEPPUKA, from A millennium of macroeconomic data)","https://fred.stlouisfed.org/series/UNRTUKA",53,3,1,"4"

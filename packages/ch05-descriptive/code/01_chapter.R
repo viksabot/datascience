@@ -120,6 +120,29 @@ cv_x <- sd_x / mean_x
 cv_x
 
 
+# ---- fig-normal ----
+z <- seq(-4, 4, length.out = 401)
+curve <- data.frame(z = z, y = dnorm(z))
+p <- ggplot(curve, aes(z, y))
+for (k in 3:1) {
+  p <- p + geom_ribbon(data = subset(curve, abs(z) <= k),
+                       aes(ymin = 0, ymax = y), fill = book_blue, alpha = 0.16)
+}
+brackets <- data.frame(k = 1:3, y = c(0.43, 0.48, 0.53),
+                       lab = c("68%", "95%", "99.7%"))
+p + geom_line(color = book_blue, linewidth = 0.6) +
+  geom_segment(data = brackets, aes(x = -k, xend = k, y = y, yend = y),
+               inherit.aes = FALSE, color = "grey35", linewidth = 0.35) +
+  geom_text(data = brackets, aes(x = k + 0.15, y = y, label = lab),
+            inherit.aes = FALSE, hjust = 0, size = 2.6, color = "grey20") +
+  annotate("text", x = -3.95, y = 0.26, hjust = 0, size = 2.8, color = "grey15", parse = TRUE,
+           label = "f(x) == frac(1, sigma * sqrt(2 * pi)) * e^{-frac((x - mu)^2, 2 * sigma^2)}") +
+  scale_x_continuous(breaks = -3:3, limits = c(-4, 4.2)) +
+  scale_y_continuous(limits = c(0, 0.56), expand = c(0, 0)) +
+  labs(x = "Number of standard deviations from the mean", y = NULL) +
+  theme(axis.text.y = element_blank(), panel.grid = element_blank())
+
+
 # ---- fig-skew ----
 grid <- seq(0, 1, length.out = 400)
 shapes <- bind_rows(
@@ -131,7 +154,7 @@ shapes <- bind_rows(
 )
 shapes$shape <- factor(shapes$shape, levels = unique(shapes$shape))
 ggplot(shapes, aes(x, y)) +
-  geom_area(fill = book_blue, alpha = 0.18) +
+  geom_ribbon(aes(ymin = 0, ymax = y), fill = book_blue, alpha = 0.18) +
   geom_line(color = book_blue, linewidth = 0.6) +
   facet_wrap(~shape) +
   labs(x = NULL, y = NULL) +
@@ -150,7 +173,7 @@ tails <- bind_rows(
 )
 tails$shape <- factor(tails$shape, levels = unique(tails$shape))
 ggplot(tails, aes(z, y)) +
-  geom_area(fill = book_blue, alpha = 0.18) +
+  geom_ribbon(aes(ymin = 0, ymax = y), fill = book_blue, alpha = 0.18) +
   geom_line(color = book_blue, linewidth = 0.6) +
   facet_wrap(~shape) +
   labs(x = NULL, y = NULL) +

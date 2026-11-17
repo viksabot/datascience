@@ -3,6 +3,21 @@
 # Lines that begin with ## were not run in the book, usually because they
 # need the internet or a package that is not always installed.
 
+# ---- fig-phillips ----
+uk <- read.csv("data/uk_phillips_1861_1913.csv")
+u <- seq(0.9, 11, length.out = 200)
+fit <- data.frame(u = u, g = 9.638 * u^(-1.394) - 0.900)
+ggplot(uk, aes(unemployment, wage_growth)) +
+  geom_hline(yintercept = 0, color = "grey70", linewidth = 0.3) +
+  geom_line(data = fit, aes(u, g), color = book_orange, linewidth = 0.8) +
+  geom_point(color = book_blue, size = 1.8, alpha = 0.85) +
+  annotate("text", x = 6.2, y = 4.3, label = "Phillips's curve",
+           color = book_orange, size = 3, hjust = 0) +
+  scale_x_continuous(breaks = seq(0, 11, 1), limits = c(0, 11)) +
+  coord_cartesian(ylim = c(-6, 10)) +
+  labs(x = "Unemployment rate (%)", y = "Growth of money wages (% per year)")
+
+
 # ---- fig-us-phillips ----
 us <- read.csv("data/us_phillips.csv") %>%
   filter(year >= 1961, year <= 1983) %>%
