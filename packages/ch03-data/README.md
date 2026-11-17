@@ -18,7 +18,7 @@ Every table, number and chart that R produces in this chapter. Running the packa
 
 ## Software
 
-Written and tested with R version 4.5.0 (2025-04-11 ucrt). Packages: `dplyr`, `ggplot2`, `httr`, `jsonlite`, `knitr`, `moments`, `readxl`, `scales`, `tidyr`.
+Written and tested with R version 4.5.3 (2026-03-11 ucrt). Packages: `dplyr`, `ggplot2`, `httr`, `jsonlite`, `knitr`, `moments`, `readxl`, `scales`, `tidyr`.
 
 ## Data
 
