@@ -6,8 +6,6 @@
 # ---- read-population ----
 library(dplyr)
 library(ggplot2)
-library(moments)
-library(knitr)
 
 population <- read.csv("data/wb_cleaned_data.csv")
 
@@ -143,6 +141,9 @@ ggplot(tails, aes(z, y)) +
 
 
 # ---- skew-kurt ----
+# install.packages("moments")   # only once on each computer
+library(moments)
+
 skew_x <- skewness(x, na.rm = TRUE)
 kurtosis_x <- kurtosis(x, na.rm = TRUE)
 skew_x
@@ -173,11 +174,14 @@ stats_df <- data.frame(
 )
 stats_df
 
+# install.packages("openxlsx")  # only once on each computer
 library(openxlsx)
 write.xlsx(stats_df, file = "descriptive_stats.xlsx", rowNames = FALSE)
 
 
 # ---- tbl-summary ----
+library(knitr)   # for kable()
+
 describe <- function(v) {
   v <- v[!is.na(v)]
   c(N = length(v), Mean = mean(v), Median = median(v), SD = sd(v),
