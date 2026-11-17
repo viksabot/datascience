@@ -95,12 +95,29 @@ ggplot(income, aes(x = ratio, y = reorder(country, ratio), color = balkan)) +
         panel.grid.major.x = element_line(color = "#E6E9EE"))
 
 
-# ---- dispersion ----
+# ---- disp-range ----
 range_x <- max_x - min_x
+range_x
+
+
+# ---- disp-iqr ----
 iqr_x <- IQR(x, na.rm = TRUE)
-var_x <- var(x, na.rm = TRUE)
+iqr_x
+
+
+# ---- disp-sd ----
 sd_x <- sd(x, na.rm = TRUE)
-c(range = range_x, IQR = iqr_x, variance = var_x, sd = sd_x)
+sd_x
+
+
+# ---- disp-var ----
+var_x <- var(x, na.rm = TRUE)
+var_x
+
+
+# ---- disp-cv ----
+cv_x <- sd_x / mean_x
+cv_x
 
 
 # ---- fig-skew ----
