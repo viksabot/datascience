@@ -181,7 +181,7 @@ tab <- df_clean %>%
   transmute(Country = country, `GDP per person (US$)` = round(GDPperCap),
             Rank = GDPperCap_rank, `z-score` = round(GDPperCap_z, 2),
             `Min-max` = round(GDPperCap_minmax, 3),
-            `Share of leader` = round(GDPperCap_ref, 3))
+            `Share of maximum` = round(GDPperCap_ref, 3))
 kable(tab, row.names = FALSE)
 
 
