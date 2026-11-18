@@ -78,10 +78,10 @@ plot3 <- scatter_plot("GDPperCap", "SecEnroll",
 # ---- i-grid-code ----
 # # install.packages("gridExtra")
 # library(gridExtra)
-# # Save as a high-quality PNG image
-# png("scatter_plots.png", width = 3000, height = 1500, res = 300)
-# grid.arrange(plot1, plot2, plot3, ncol = 3)
-# dev.off()
+# # Join the three charts side by side and save them as one PNG image
+# plots <- arrangeGrob(plot1, plot2, plot3, ncol = 3)
+# ggsave("scatter_plots.png", plots,
+#        width = 25, height = 12, units = "cm", dpi = 300)
 
 
 # ---- fig-i-scatters ----
