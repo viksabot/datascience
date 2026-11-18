@@ -40,7 +40,7 @@ ggplot(pts, aes(a, b)) +
   annotate("text", x = -1.2, y = 0.95, label = "PC2", color = book_orange,
            size = 3.2, hjust = 0) +
   coord_fixed(xlim = c(-3.2, 3.2), ylim = c(-2.8, 2.8)) +
-  labs(x = "Variable A (standardised)", y = "Variable B (standardised)")
+  labs(x = "Variable A (standardized)", y = "Variable B (standardized)")
 
 
 # ---- u-download ----
@@ -51,7 +51,7 @@ ggplot(pts, aes(a, b)) +
 # indicators <- c(
 #   "LifeExp"    = "SP.DYN.LE00.IN",  # Life expectancy at birth
 #   "GDPperCap"  = "NY.GDP.PCAP.CD",  # GDP per person (USD)
-#   "SecEnroll"  = "SE.SEC.ENRR"      # Secondary enrolment (%)
+#   "SecEnroll"  = "SE.SEC.ENRR"      # Secondary enrollment (%)
 # )
 # 
 # # extra = TRUE adds the column region ("Aggregates" for groups)
@@ -92,7 +92,7 @@ round(normalized_weights, 2)
 
 
 # ---- u-index ----
-# Calculate the index: a weighted sum of the standardised indicators
+# Calculate the index: a weighted sum of the standardized indicators
 df_clean$HDI_PCA_weighted <- as.numeric(df_scaled %*%
                                           normalized_weights)
 

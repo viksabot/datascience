@@ -143,7 +143,7 @@ head(data, 3)
 
 
 # ---- a-muni-model ----
-# Standardise the ECI within each year
+# Standardize the ECI within each year
 data$eci_start_z <- as.vector(scale(data$eci_start))
 data$eci_end_z <- as.vector(scale(data$eci_end))
 # Transform income_start to its logarithm

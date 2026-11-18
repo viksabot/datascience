@@ -1,4 +1,4 @@
-# Shared setup: packages, chart theme and colours.
+# Shared setup: packages, chart theme and colors.
 library(dplyr)
 library(ggplot2)
 library(scales)

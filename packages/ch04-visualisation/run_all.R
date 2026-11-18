@@ -1,4 +1,4 @@
-# Reproduces the results of Chapter 4: Visualising Economic Data
+# Reproduces the results of Chapter 4: Visualizing Economic Data
 # Open the .Rproj file in RStudio and then run this script.
 if (!file.exists("code/01_chapter.R")) stop("Open the .Rproj file in this folder first.")
 dir.create("output", showWarnings = FALSE)

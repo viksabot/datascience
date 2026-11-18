@@ -30,6 +30,6 @@ Data from outside sources remain subject to the terms of those sources.
 
 - `run_all.R`: runs everything, in order
 - `install_packages.R`: installs the R packages that this chapter uses
-- `code/00_setup.R`: packages, chart theme and colours
+- `code/00_setup.R`: packages, chart theme and colors
 - `code/01_chapter.R`: the chapter's code, in book order
 - `output/`: created when you run the package

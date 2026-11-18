@@ -132,10 +132,10 @@ brackets <- data.frame(k = 1:3, y = c(0.43, 0.48, 0.53),
                        lab = c("68%", "95%", "99.7%"))
 p + geom_line(color = book_blue, linewidth = 0.6) +
   geom_segment(data = brackets, aes(x = -k, xend = k, y = y, yend = y),
-               inherit.aes = FALSE, color = "grey35", linewidth = 0.35) +
+               inherit.aes = FALSE, color = "gray35", linewidth = 0.35) +
   geom_text(data = brackets, aes(x = k + 0.15, y = y, label = lab),
-            inherit.aes = FALSE, hjust = 0, size = 2.6, color = "grey20") +
-  annotate("text", x = -3.95, y = 0.26, hjust = 0, size = 2.8, color = "grey15", parse = TRUE,
+            inherit.aes = FALSE, hjust = 0, size = 2.6, color = "gray20") +
+  annotate("text", x = -3.95, y = 0.26, hjust = 0, size = 2.8, color = "gray15", parse = TRUE,
            label = "f(x) == frac(1, sigma * sqrt(2 * pi)) * e^{-frac((x - mu)^2, 2 * sigma^2)}") +
   scale_x_continuous(breaks = -3:3, limits = c(-4, 4.2)) +
   scale_y_continuous(limits = c(0, 0.56), expand = c(0, 0)) +

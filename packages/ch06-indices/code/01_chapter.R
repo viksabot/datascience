@@ -13,11 +13,11 @@
 # # 1) Define indicators similar to those of the HDI
 # #    - Life expectancy (SP.DYN.LE00.IN)
 # #    - GDP per person (NY.GDP.PCAP.CD)
-# #    - Secondary school enrolment (SE.SEC.ENRR)
+# #    - Secondary school enrollment (SE.SEC.ENRR)
 # indicators <- c(
 #   "LifeExp"    = "SP.DYN.LE00.IN",  # Life expectancy at birth
 #   "GDPperCap"  = "NY.GDP.PCAP.CD",  # GDP per person (current US$)
-#   "SecEnroll"  = "SE.SEC.ENRR"      # Secondary enrolment, % (gross)
+#   "SecEnroll"  = "SE.SEC.ENRR"      # Secondary enrollment, % (gross)
 # )
 # 
 # # 2) Download data for all countries for 2022
@@ -68,11 +68,11 @@ plot1 <- scatter_plot("GDPperCap", "LifeExp",
                       "GDP per person (USD)",
                       "Life expectancy at birth (years)")
 plot2 <- scatter_plot("SecEnroll", "LifeExp",
-                      "Secondary enrolment (%)",
+                      "Secondary enrollment (%)",
                       "Life expectancy at birth (years)")
 plot3 <- scatter_plot("GDPperCap", "SecEnroll",
                       "GDP per person (USD)",
-                      "Secondary enrolment (%)")
+                      "Secondary enrollment (%)")
 
 
 # ---- i-grid-code ----
@@ -124,8 +124,8 @@ cor3 <- cor(df_analysis$GDPperCap, df_analysis$SecEnroll,
 
 # Results
 cat("GDP per person and life expectancy:", round(cor1, 3), "\n")
-cat("Enrolment and life expectancy:", round(cor2, 3), "\n")
-cat("GDP per person and enrolment:", round(cor3, 3), "\n")
+cat("Enrollment and life expectancy:", round(cor2, 3), "\n")
+cat("GDP per person and enrollment:", round(cor3, 3), "\n")
 
 
 # ---- i-cor-log ----
@@ -366,7 +366,7 @@ labour %>%
   scale_color_manual(values = c(`FALSE` = book_gray, `TRUE` = book_orange),
                      guide = "none") +
   scale_x_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0.02))) +
-  labs(x = "Labour market index (0 = worst, 1 = best)", y = NULL) +
+  labs(x = "Labor market index (0 = worst, 1 = best)", y = NULL) +
   theme(panel.grid.major.y = element_blank(),
         panel.grid.major.x = element_line(color = "#E6E9EE"))
 

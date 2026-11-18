@@ -34,7 +34,7 @@ Data from outside sources remain subject to the terms of those sources.
 
 - `run_all.R`: runs everything, in order
 - `install_packages.R`: installs the R packages that this chapter uses
-- `code/00_setup.R`: packages, chart theme and colours
+- `code/00_setup.R`: packages, chart theme and colors
 - `code/01_chapter.R`: the chapter's code, in book order
 - `code/optional_download_data.R`: how the data were downloaded. It needs the internet, and it is written to be run from the book's project, so it is not part of `run_all.R`
 - `data/`: dated copies of the data, never edited by hand

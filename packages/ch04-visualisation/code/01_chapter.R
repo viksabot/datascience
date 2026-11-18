@@ -1,4 +1,4 @@
-# Chapter 4: Visualising Economic Data
+# Chapter 4: Visualizing Economic Data
 # The code of the chapter, in the order of the book.
 # Lines that begin with ## were not run in the book, usually because they
 # need the internet or a package that is not always installed.
@@ -8,7 +8,7 @@ uk <- read.csv("data/uk_phillips_1861_1913.csv")
 u <- seq(0.9, 11, length.out = 200)
 fit <- data.frame(u = u, g = 9.638 * u^(-1.394) - 0.900)
 ggplot(uk, aes(unemployment, wage_growth)) +
-  geom_hline(yintercept = 0, color = "grey70", linewidth = 0.3) +
+  geom_hline(yintercept = 0, color = "gray70", linewidth = 0.3) +
   geom_line(data = fit, aes(u, g), color = book_orange, linewidth = 0.8) +
   geom_point(color = book_blue, size = 1.8, alpha = 0.85) +
   annotate("text", x = 6.2, y = 4.3, label = "Phillips's curve",
@@ -146,7 +146,7 @@ fl <- data.frame(year = 1990:2012,
 p_flip <- ggplot(fl, aes(year, murders)) +
   geom_area(fill = book_orange, alpha = 0.85) +
   geom_line(colour = book_orange, linewidth = 0.6) +
-  geom_vline(xintercept = 2005, linetype = "dashed", colour = "grey35", linewidth = 0.4) +
+  geom_vline(xintercept = 2005, linetype = "dashed", colour = "gray35", linewidth = 0.4) +
   scale_y_reverse(limits = c(1000, 0), expand = c(0, 0)) +
   scale_x_continuous(breaks = c(1990, 2000, 2010), expand = c(0, 0)) +
   labs(x = NULL, y = NULL) +
@@ -154,8 +154,8 @@ p_flip <- ggplot(fl, aes(year, murders)) +
 p_norm <- ggplot(fl, aes(year, murders)) +
   geom_line(colour = book_blue, linewidth = 0.8) +
   geom_point(colour = book_blue, size = 0.9) +
-  geom_vline(xintercept = 2005, linetype = "dashed", colour = "grey35", linewidth = 0.4) +
-  annotate("text", x = 2004.6, y = 960, label = "law changed", hjust = 1, size = 2.2, colour = "grey30") +
+  geom_vline(xintercept = 2005, linetype = "dashed", colour = "gray35", linewidth = 0.4) +
+  annotate("text", x = 2004.6, y = 960, label = "law changed", hjust = 1, size = 2.2, colour = "gray30") +
   scale_y_continuous(limits = c(0, 1000), expand = c(0, 0)) +
   scale_x_continuous(breaks = c(1990, 2000, 2010), expand = expansion(add = c(0.3, 0.6))) +
   labs(x = NULL, y = NULL) +
